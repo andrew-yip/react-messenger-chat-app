@@ -1,11 +1,11 @@
 import React from "react"
 
-import { BrowserRouter as Router, Switch, Route, Routes } from "react-router-dom"
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 
 // import { AuthProvider } from "../contexts/AuthContext"
 
 // import Chats from "./Chats"
-// import Login from "./Login"
+import Login from "./Login"
 
 function App() {
   return (
@@ -13,8 +13,8 @@ function App() {
       <Router>
         {/* <AuthProvider> */}
           <Routes>
-            {/* <Route path="/chats" component={Chats} />
-            <Route path="/" component={Login} /> */}
+            {/* <Route path="/chats" component={Chats} /> */}
+            <Route path="/" element={<Login />} />
           </Routes>
         {/* </AuthProvider> */}
       </Router>

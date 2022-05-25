@@ -8,7 +8,11 @@ const Login = () => {
                 <h2>Welcome to Messenger Chat!</h2>
                 <div className='login-button google'>
                     <GoogleOutlined /> Sign In with Google
-                    <br /> <br />
+                </div>
+
+                <br /> <br />
+
+                <div className='login-button facebook'>
                     <FacebookOutlined /> Sign In with Facebook
                 </div>
             </div>
