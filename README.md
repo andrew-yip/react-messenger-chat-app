@@ -4,6 +4,8 @@
 
 Realtime Chat Application with Social Auth and dedicated chat APIs/sockets.
 
-You will learn how to build a react chat app using [https://chatengine.io](https://chatengine.io)
+Tools & Technologies: 
 
-Firebase and Chat Engine are greats tools to setup apps fast and easily - great to learn with!
+- React.js
+- Firebase
+- Chat Engine
