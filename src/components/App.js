@@ -12,7 +12,7 @@ function App() {
       <Router>
         <AuthProvider>
           <Routes>
-            <Route path="/chats" component={Chats} />
+            <Route path="/chats" element={<Chats />} />
             <Route path="/" element={<Login />} />
           </Routes>
         </AuthProvider>
@@ -21,4 +21,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
