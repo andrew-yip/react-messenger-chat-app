@@ -3,9 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { ChatEngine } from "react-chat-engine";
 import { auth } from "../firebase";
 
+import { useAuth } from "../contexts/AuthContext";
+
 const Chats = () => {
 
     const navigate = useNavigate();
+    const { user } = useAuth();
+    console.log(user);
 
     // log out
     const handleLogout = async () => {
@@ -23,7 +27,8 @@ const Chats = () => {
                     Logout
                 </div>
 
-                <ChatEngine height="calc(100vh - 66px)" projectId="PROJECT_ID" userName="." userSecret="."/>
+                <ChatEngine height="calc(100vh - 66px)" projectId="
+ID" userName="." userSecret="."/>
            </div>
        </div>
     );
