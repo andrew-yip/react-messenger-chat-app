@@ -14,7 +14,7 @@ export const AuthProvider = ( {  children }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        auth.onAuthStateChanged((user) => { // grabbing the user from firebase authentication
+            auth.onAuthStateChanged((user) => { // grabbing the user from firebase authentication
             setUser(user);
             setLoading(false);
 

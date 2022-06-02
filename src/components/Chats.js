@@ -9,7 +9,7 @@ const Chats = () => {
 
     const navigate = useNavigate();
     const { user } = useAuth();
-    console.log(user);
+    //console.log(user);
 
     // log out
     const handleLogout = async () => {
