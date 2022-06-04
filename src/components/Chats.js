@@ -27,8 +27,9 @@ const Chats = () => {
                     Logout
                 </div>
 
-                <ChatEngine height="calc(100vh - 66px)" projectId="
-ID" userName="." userSecret="."/>
+                <ChatEngine height="calc(100vh - 66px)" projectID="
+PROJECT_ID" userName={user.email}
+            userSecret={user.uid}/>
            </div>
        </div>
     );
