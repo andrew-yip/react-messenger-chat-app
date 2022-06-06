@@ -1,8 +1,7 @@
-import React, {useRef, useState, useEffect } from "react";
+import React, {useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Avatar, ChatEngine } from "react-chat-engine";
+import { ChatEngine } from "react-chat-engine";
 import { auth } from "../firebase";
-
 import { useAuth } from "../contexts/AuthContext";
 import axios from "axios";
 
@@ -36,7 +35,7 @@ const Chats = () => {
 
         axios.get('https://api.chatengine.io/users/me', {
             headers: {
-                "project-id": "insert project id",
+                "project-id": "",
                 "user-name": user.email,
                 "user-secret": user.uid,
             }
@@ -53,21 +52,24 @@ const Chats = () => {
             formdata.append('username', user.email);
             formdata.append('secret', user.uid);
 
-            getFile(user.photoUrl)
-                .then (() => {
+            getFile(user.photoURL)
+                .then ((avatar) => {
                     formdata.append('avatar', avatar, avatar.name);
 
                     // to create a user
                     axios.post('https://api.chatengine.io/users', 
-                        formData,
-                        { headers: { "private-key": "private key here"}}
+                    formdata,
+                    { headers: { "private-key": "" } }
                     )
-                        .then(() => setLoading(false));
-                        .catch(() => console.log(error));
+                    .then(() => setLoading(false))
+                    .catch((error) => console.log(error))
+                        
                 })
         })
 
-    }, [user, history])
+    }, [user, navigate]);
+
+    if (!user || loading) return 'Loading...';
 
     return (
        <div className="chats-page">
@@ -79,8 +81,7 @@ const Chats = () => {
                     Logout
                 </div>
 
-                <ChatEngine height="calc(100vh - 66px)" projectID="
-PROJECT_ID" userName={user.email}
+                <ChatEngine height="calc(100vh - 66px)" projectID="" userName={user.email}
             userSecret={user.uid}/>
            </div>
        </div>
