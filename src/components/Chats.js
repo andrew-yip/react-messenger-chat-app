@@ -35,7 +35,7 @@ const Chats = () => {
 
         axios.get('https://api.chatengine.io/users/me', {
             headers: {
-                "project-id": "",
+                "project-id": process.env.PROJECT_ID,
                 "user-name": user.email,
                 "user-secret": user.uid,
             }
@@ -59,7 +59,7 @@ const Chats = () => {
                     // to create a user
                     axios.post('https://api.chatengine.io/users', 
                     formdata,
-                    { headers: { "private-key": "" } }
+                    { headers: { "private-key": process.env.API_KEY } }
                     )
                     .then(() => setLoading(false))
                     .catch((error) => console.log(error))
@@ -81,7 +81,7 @@ const Chats = () => {
                     Logout
                 </div>
 
-                <ChatEngine height="calc(100vh - 66px)" projectID="" userName={user.email}
+                <ChatEngine height="calc(100vh - 66px)" projectID={process.env.PROJECT_ID} userName={user.email}
             userSecret={user.uid}/>
            </div>
        </div>
